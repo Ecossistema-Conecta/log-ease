@@ -7,7 +7,7 @@ Biblioteca de logging flexível e configurável para JavaScript.
 ### Usando SSH
 
 ```bash
-npm install git+ssh://git@github.com:Ecossistema-Conecta/LogEase.git
+npm install git+ssh://git@github.com:Ecossistema-Conecta/log-ease.git
 ```
 
 ## Uso
@@ -15,7 +15,7 @@ npm install git+ssh://git@github.com:Ecossistema-Conecta/LogEase.git
 ### Importação e Inicialização
 
 ```javascript
-import Logger from 'LogEase';
+import Logger from 'log-ease';
 
 const logger = new Logger({
   logEndpoint: 'https://url-endpoint-de-logs/logs/',
