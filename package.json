@@ -1,0 +1,32 @@
+{
+  "name": "log-ease",
+  "version": "1.0.0",
+  "description": "Biblioteca de logging flexível e configurável para JavaScript.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ecossistema-Conecta/LogEase.git"
+  },
+  "keywords": [
+    "log",
+    "registry"
+  ],
+  "author": "Guilherme Pereira Lima <guilherme.pereira@provafacilnaweb.com.br>",
+  "license": "ISC",
+  "bugs": {
+    "url": "git+ssh://git@github.com:Ecossistema-Conecta/LogEase.git/issues"
+  },
+  "homepage": "https://github.com/Ecossistema-Conecta/LogEase#readme",
+  "dependencies": {
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.8",
+    "@babel/preset-env": "^7.25.8"
+  }
+}
