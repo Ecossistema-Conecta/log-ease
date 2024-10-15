@@ -29,8 +29,8 @@ class Logger {
     }
 
     scheduleFlush() {
-        clearTimeout(this.flushTimeout);
-        if (this.isLoggingActive) this.flushTimeout = setTimeout(() => this.flushLogs(), this.flushInterval);
+        if (this.flushTimeout) clearTimeout(this.flushTimeout);
+        if (this.isLoggingActive) this.flushTimeout = setTimeout(() => {this.flushLogs()}, this.flushInterval);
     }
 
     async flushLogs() {
@@ -74,7 +74,20 @@ class Logger {
 
             const self = this;
             console[method] = function (...args) {
-                self.sendLog(method, 'Console Logs', { args });
+                let safeArgs;
+                try {
+                    safeArgs = args.map(arg => {
+                        try {
+                            return JSON.parse(JSON.stringify(arg));
+                        } catch {
+                            return String(arg);
+                        }
+                    });
+                } catch (e) {
+                    safeArgs = ['[Unable to serialize arguments]'];
+                }
+
+                self.sendLog(method, 'Console Logs', { args: safeArgs });
                 self.originalConsoleMethods[method].apply(console, args);
             };
         });
